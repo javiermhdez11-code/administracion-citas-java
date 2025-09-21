@@ -1,0 +1,27 @@
+## `.gitignore`
+
+```gitignore
+# Archivos de compilación
+*.class
+*.jar
+*.war
+*.ear
+
+# Archivos temporales
+*.swp
+*.swo
+*.log
+*.tmp
+*~
+
+# Configuración de IDE (IntelliJ IDEA)
+.idea/
+*.iml
+out/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpeta de base de datos local
+db/
