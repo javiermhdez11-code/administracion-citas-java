@@ -1,0 +1,279 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Main",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_106919537 { 
+   	label=FileManager
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   FileManager106919537[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FileManager</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ cargarDatos(doctores: List&lt;Doctor&gt;, pacientes: List&lt;Paciente&gt;, citas: List&lt;Cita&gt;): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ cargarDatos1(doctores: List&lt;Doctor&gt;, pacientes: List&lt;Paciente&gt;, citas: List&lt;Cita&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ guardarDatos(doctores: List&lt;Doctor&gt;, pacientes: List&lt;Paciente&gt;, citas: List&lt;Cita&gt;): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ guardarDatos1(doctores: List&lt;Doctor&gt;, pacientes: List&lt;Paciente&gt;, citas: List&lt;Cita&gt;)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1348797491 { 
+   	label=AuthService
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   AuthService1348797491[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AuthService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ autenticar(usuario: String, contrasena: String): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1531808526 { 
+   	label=Usuario
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Usuario1531808526[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Usuario</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   nombre: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1663510500 { 
+   	label=ClinicaService
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ClinicaService1663510500[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ClinicaService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   citaIdCounter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   citas: List&lt;Cita&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   doctorIdCounter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   doctores: List&lt;Doctor&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fileManager: FileManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pacienteIdCounter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pacientes: List&lt;Paciente&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ actualizarContadores()</TD></TR>
+<TR><TD ALIGN="LEFT" >- buscarDoctorPorId(id: String): Doctor</TD></TR>
+<TR><TD ALIGN="LEFT" >- buscarPacientePorId(id: String): Paciente</TD></TR>
+<TR><TD ALIGN="LEFT" >+ buscarPersonaPorNombre(nombreCompleto: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ crearCita(idPaciente: String, idDoctor: String, motivo: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mostrarCitas()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mostrarDoctores()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mostrarPacientes()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ registrarDoctor(nombre: String, especialidad: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ registrarPaciente(nombre: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2052357439 { 
+   	label=Doctor
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Doctor2052357439[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Doctor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   especialidad: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2100595 { 
+   	label=Cita
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Cita2100595[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Cita</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   fecha: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   hora: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idDoctor: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idPaciente: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   motivo: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2390489 { 
+   	label=Main
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Main2390489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Main</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- ejecutarMenuPrincipal(scanner: Scanner, clinicaService: ClinicaService, fileManager: FileManager)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_813791121 { 
+   	label=Paciente
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Paciente813791121[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Paciente</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+ClinicaService1663510500 -> Cita2100595[label="citas
+[0..*]"];
+ClinicaService1663510500 -> Doctor2052357439[label="doctores
+[0..*]"];
+ClinicaService1663510500 -> FileManager106919537[label="fileManager
+[0..1]"];
+ClinicaService1663510500 -> Paciente813791121[label="pacientes
+[0..*]"];
+Main2390489 -> AuthService1348797491[label="main() -> autenticar()"];
+Main2390489 -> FileManager106919537[label="main() -> cargarDatos()"];
+Paciente813791121 -> Doctor2052357439[arrowhead=none];
+Usuario1531808526 -> Doctor2052357439[arrowhead=none, arrowtail=empty, dir=both];
+Usuario1531808526 -> Paciente813791121[arrowhead=none, arrowtail=empty, dir=both];
+    
+}
+@enduml
