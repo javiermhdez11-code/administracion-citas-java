@@ -1,0 +1,6 @@
+# Ignora todos los archivos dentro de la carpeta db
+*
+
+# Permite que la carpeta db se suba (aunque esté vacía)
+# Esto asegura que la carpeta exista, pero no su contenido
+!.gitignore

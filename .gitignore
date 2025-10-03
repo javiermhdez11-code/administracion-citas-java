@@ -23,5 +23,3 @@ out/
 .DS_Store
 Thumbs.db
 
-# Carpeta de base de datos local
-db/
