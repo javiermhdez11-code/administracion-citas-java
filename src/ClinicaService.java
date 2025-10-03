@@ -219,6 +219,7 @@ public class ClinicaService {
         for (Paciente paciente : pacientes) {
             if (paciente.getId().equals(id)) {
                 return paciente;
+
             }
         }
         return null;
